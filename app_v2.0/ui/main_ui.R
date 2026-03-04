@@ -56,11 +56,43 @@ ui <- fluidPage(
       body {
         padding-bottom: 108px;
       }
-    "))
+
+      .lang-switcher {
+        position: fixed;
+        top: 10px;
+        right: 20px;
+        z-index: 2000;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 6px;
+        padding: 6px 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      }
+
+      .lang-switcher .control-label {
+        margin-bottom: 2px;
+        font-size: 12px;
+      }
+
+      .lang-switcher .form-group {
+        margin-bottom: 0;
+      }
+    ")),
+    tags$script(src = "js/i18n.js")
   ),
 
   # Global JS infrastructure
   shinyjs::useShinyjs(),
+
+  div(
+    class = "lang-switcher",
+    selectInput(
+      inputId = "ui_lang",
+      label = "Idioma / Language",
+      choices = c("ES" = "es", "EN" = "en"),
+      selected = "en",
+      width = "120px"
+    )
+  ),
 
   # Main navigation structure
   navbarPage(
