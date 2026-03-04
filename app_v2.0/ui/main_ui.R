@@ -85,12 +85,12 @@ ui <- fluidPage(
   # Main navigation structure
   navbarPage(
     id = "main_nav",
-    title = "Intercanine Distance",
+    title = "Sex Estimation Using Intercanine Distance",
     theme = shinytheme("flatly"),
 
     header = tags$div(
       class = "logo-fixed-bar",
-      tags$img(src = "images/Logo.png", alt = "Intercanine Distance")
+      tags$img(src = "images/Logo.png", alt = "Sex Estimation Using Intercanine Distance")
     ),
 
     tags$ul(

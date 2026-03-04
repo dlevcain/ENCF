@@ -1,6 +1,6 @@
 (function () {
   const spanishTranslations = {
-    brand: "Distancia Intercanina",
+    brand: "Estimación de sexo mediante distancia intercanina",
     tabs: {
       "Reference sample": "Muestra de referencia",
       "General Description": "Descripción general",
@@ -25,7 +25,7 @@
   };
 
   const englishTranslations = {
-    brand: "Intercanine Distance",
+    brand: "Sex Estimation Using Intercanine Distance",
     tabs: {
       "Muestra de referencia": "Reference sample",
       "Descripción general": "General Description",
