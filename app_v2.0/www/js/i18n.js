@@ -93,14 +93,42 @@
     }
   }
 
-  document.addEventListener("shiny:connected", function () {
+  function getCurrentLanguage() {
     const langSelect = document.getElementById("ui_lang");
-    if (!langSelect) return;
+    if (langSelect && langSelect.value) {
+      return langSelect.value;
+    }
 
-    applyLanguage(langSelect.value || "en");
+    if (window.Shiny && window.Shiny.shinyapp && window.Shiny.shinyapp.$inputValues) {
+      return window.Shiny.shinyapp.$inputValues.ui_lang || "en";
+    }
 
-    langSelect.addEventListener("change", function (event) {
-      applyLanguage(event.target.value);
+    return "en";
+  }
+
+  let handlersInitialized = false;
+
+  function initializeLanguageHandlers() {
+    applyLanguage(getCurrentLanguage());
+
+    if (handlersInitialized) {
+      return;
+    }
+    handlersInitialized = true;
+
+    document.addEventListener("change", function (event) {
+      if (event.target && event.target.id === "ui_lang") {
+        applyLanguage(event.target.value);
+      }
     });
-  });
+
+    document.addEventListener("shiny:inputchanged", function (event) {
+      if (event.name === "ui_lang") {
+        applyLanguage(event.value);
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initializeLanguageHandlers);
+  document.addEventListener("shiny:connected", initializeLanguageHandlers);
 })();
