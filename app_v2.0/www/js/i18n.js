@@ -1,50 +1,59 @@
 (function () {
-  const translations = {
-    es: {
-      brand: "Distancia Intercanina",
-      tabs: {
-        "Reference sample": "Muestra de referencia",
-        "General Description": "Descripción general",
-        "Description of Distances": "Descripción de distancias",
-        "Sex Estimation": "Estimación de sexo",
-        "Results": "Resultados"
-      },
-      texts: {
-        "Anatomical Zone": "Zona anatómica",
-        "Abstract": "Resumen",
-        "Diagram": "Diagrama",
-        "Sex": "Sexo",
-        "Age - Sex": "Edad - Sexo",
-        "Maxillary area - Sex": "Área maxilar - Sexo",
-        "Mandibular area - Sex": "Área mandibular - Sexo",
-        "Intercanine Distance": "Distancia intercanina",
-        "Mesiodistal Right": "Mesiodistal derecha",
-        "Mesiodistal Left": "Mesiodistal izquierda"
-      }
+  const spanishTranslations = {
+    brand: "Distancia Intercanina",
+    tabs: {
+      "Reference sample": "Muestra de referencia",
+      "General Description": "Descripción general",
+      "Description of Distances": "Descripción de distancias",
+      "Sex Estimation": "Estimación de sexo",
+      "Results": "Resultados"
     },
-    en: {
-      brand: "Intercanine Distance",
-      tabs: {
-        "Muestra de referencia": "Reference sample",
-        "Descripción general": "General Description",
-        "Descripción de distancias": "Description of Distances",
-        "Estimación de sexo": "Sex Estimation",
-        "Resultados": "Results"
-      },
-      texts: {
-        "Zona anatómica": "Anatomical Zone",
-        "Resumen": "Abstract",
-        "Diagrama": "Diagram",
-        "Sexo": "Sex",
-        "Edad - Sexo": "Age - Sex",
-        "Área maxilar - Sexo": "Maxillary area - Sex",
-        "Área mandibular - Sexo": "Mandibular area - Sex",
-        "Distancia intercanina": "Intercanine Distance",
-        "Mesiodistal derecha": "Mesiodistal Right",
-        "Mesiodistal izquierda": "Mesiodistal Left"
-      }
+    texts: {
+      "Anatomical Zone": "Zona anatómica",
+      "Abstract": "Resumen",
+      "Diagram": "Diagrama",
+      "Sex": "Sexo",
+      "Age - Sex": "Edad - Sexo",
+      "Maxillary area - Sex": "Área maxilar - Sexo",
+      "Mandibular area - Sex": "Área mandibular - Sexo",
+      "Intercanine Distance": "Distancia intercanina",
+      "Mesiodistal Right": "Mesiodistal derecha",
+      "Mesiodistal Left": "Mesiodistal izquierda"
     }
   };
+
+  const englishTranslations = {
+    brand: "Intercanine Distance",
+    tabs: {
+      "Muestra de referencia": "Reference sample",
+      "Descripción general": "General Description",
+      "Descripción de distancias": "Description of Distances",
+      "Estimación de sexo": "Sex Estimation",
+      "Resultados": "Results"
+    },
+    texts: {
+      "Zona anatómica": "Anatomical Zone",
+      "Resumen": "Abstract",
+      "Diagrama": "Diagram",
+      "Sexo": "Sex",
+      "Edad - Sexo": "Age - Sex",
+      "Área maxilar - Sexo": "Maxillary area - Sex",
+      "Área mandibular - Sexo": "Mandibular area - Sex",
+      "Distancia intercanina": "Intercanine Distance",
+      "Mesiodistal derecha": "Mesiodistal Right",
+      "Mesiodistal izquierda": "Mesiodistal Left"
+    }
+  };
+
+  function getTranslationsByLanguage(lang) {
+    if (lang === "es") {
+      return spanishTranslations;
+    } else if (lang === "en") {
+      return englishTranslations;
+    }
+
+    return englishTranslations;
+  }
 
   function replaceExactText(selector, map) {
     document.querySelectorAll(selector).forEach((el) => {
@@ -56,8 +65,7 @@
   }
 
   function applyLanguage(lang) {
-    const dict = translations[lang];
-    if (!dict) return;
+    const dict = getTranslationsByLanguage(lang);
 
     const brand = document.querySelector(".navbar-brand");
     if (brand) {
