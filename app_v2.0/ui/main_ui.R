@@ -57,24 +57,24 @@ ui <- fluidPage(
         padding-bottom: 108px;
       }
 
-      .lang-switcher {
-        position: fixed;
-        top: 10px;
-        right: 20px;
-        z-index: 2000;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 6px;
-        padding: 6px 10px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      .navbar-lang-selector {
+        margin-top: 8px;
+        margin-right: 15px;
       }
 
-      .lang-switcher .control-label {
-        margin-bottom: 2px;
+      .navbar-lang-selector .control-label {
+        color: #FFFFFF;
+        margin-bottom: 4px;
         font-size: 12px;
       }
 
-      .lang-switcher .form-group {
+      .navbar-lang-selector .form-group {
         margin-bottom: 0;
+      }
+
+      .navbar-lang-selector .form-control {
+        height: 30px;
+        padding: 4px 8px;
       }
     ")),
     tags$script(src = "js/i18n.js")
@@ -82,17 +82,6 @@ ui <- fluidPage(
 
   # Global JS infrastructure
   shinyjs::useShinyjs(),
-
-  div(
-    class = "lang-switcher",
-    selectInput(
-      inputId = "ui_lang",
-      label = "Idioma / Language",
-      choices = c("ES" = "es", "EN" = "en"),
-      selected = "en",
-      width = "120px"
-    )
-  ),
 
   # Main navigation structure
   navbarPage(
@@ -103,6 +92,20 @@ ui <- fluidPage(
     header = tags$div(
       class = "logo-fixed-bar",
       tags$img(src = "images/Logo.png", alt = "Intercanine Distance")
+    ),
+
+    tags$ul(
+      class = "nav navbar-nav navbar-right",
+      tags$li(
+        class = "navbar-lang-selector",
+        selectInput(
+          inputId = "ui_lang",
+          label = "Idioma / Language",
+          choices = c("ES" = "es", "EN" = "en"),
+          selected = "en",
+          width = "120px"
+        )
+      )
     ),
 
     # Paneles principales
