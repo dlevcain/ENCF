@@ -6,9 +6,11 @@
       "General Description": "Descripción general",
       "Description of Distances": "Descripción de distancias",
       "Sex Estimation": "Estimación de sexo",
+      "Sex estimation": "Estimación de sexo",
       "Results": "Resultados"
     },
     texts: {
+      "Idioma / Language": "Idioma / Language",
       "Anatomical Zone": "Zona anatómica",
       "Abstract": "Resumen",
       "Diagram": "Diagrama",
@@ -32,7 +34,9 @@
       "Resultados": "Results"
     },
     texts: {
+      "Idioma / Language": "Language / Idioma",
       "Zona anatómica": "Anatomical Zone",
+      "Language / Idioma": "Language / Idioma",
       "Resumen": "Abstract",
       "Diagrama": "Diagram",
       "Sexo": "Sex",
