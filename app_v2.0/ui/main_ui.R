@@ -58,14 +58,8 @@ ui <- fluidPage(
       }
 
       .navbar-lang-selector {
-        margin-top: 8px;
+        margin-top: 10px;
         margin-right: 15px;
-      }
-
-      .navbar-lang-selector .control-label {
-        color: #FFFFFF;
-        margin-bottom: 4px;
-        font-size: 12px;
       }
 
       .navbar-lang-selector .form-group {
@@ -73,8 +67,13 @@ ui <- fluidPage(
       }
 
       .navbar-lang-selector .form-control {
-        height: 30px;
+        height: 32px;
         padding: 4px 8px;
+        min-width: 120px;
+      }
+
+      .navbar-lang-selector .selectize-control {
+        min-width: 120px;
       }
     ")),
     tags$script(src = "js/i18n.js")
@@ -100,10 +99,10 @@ ui <- fluidPage(
         class = "navbar-lang-selector",
         selectInput(
           inputId = "ui_lang",
-          label = "Idioma / Language",
+          label = NULL,
           choices = c("ES" = "es", "EN" = "en"),
           selected = "en",
-          width = "120px"
+          width = "130px"
         )
       )
     ),
